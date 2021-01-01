@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pet products store</title>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('partials/header.ejs')  %>
+  <%- include('partials/nav.ejs')  %>
+
+
+
+<form method = "post" action="/newconnection">
+  <div class="container">
+
+    <hr class="tablepad">
+
+
+    <%
+        if(errors){
+        errors.forEach(function(data){%>
+            <div style="color: red"><%=data.msg %></div>
+            <%});} %>
+
+    <label class="newformhead"><b>category Name</b></label><br>
+    <input type="text" class= "newform" placeholder="Category Name" name="catName" required><br>
+
+    <label  class="newformhead"><b>Event Name</b></label><br>
+    <input type="text" class= "newform" placeholder="Event Name" name="connName" required><br>
+
+    <label  class="newformhead"><b>Details</b></label><br>
+    <input type="text" class= "newform" placeholder="Description" name="details" required><br>
+
+    <label  class="newformhead"><b>When</b></label><br>
+    <input type="text" class= "newform" placeholder="When" name="dateTime" required><br>
+    <hr class="tablepad">
+    <button type="submit" class="registerbtn">Register</button>
+
+  </div>
+
+</form>
+  <%- include('partials/footer.ejs')  %>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <title>pet products store</title>
+ <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('partials/header.ejs') %>
+  <%- include('partials/nav.ejs')  %>
+  <h2 style="text-align: center; padding-top: 100px">Welcome to Login page</h2>
+
+
+  <form  class = "n8" id = "Login_page" method= 'POST' action='/login'>
+
+
+    <label>Username</label>
+    <input type= "text" name= "username" size="25" required ><br><br>
+    <label>Password</label>
+    <input type= "password" name= "password" size="25" required><br><br>
+    <div style="color: red"><%=errors %></div>
+
+    <div style="color: red"><%=loginerror %></div><br>
+
+    <div class = "login-button"><input class= "s" type= "submit" value="Login">
+  </div></form>
+  <%- include('partials/footer.ejs') %>
+  </body>
+  </html>

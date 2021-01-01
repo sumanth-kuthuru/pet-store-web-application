@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pet products store</title>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('partials/header.ejs')  %>
+  <%- include('partials/nav.ejs')  %>
+  <header class="p1">
+    <h3 style="font-size: xx-large;">Welcome to puppies ‘N Love</h3><br>
+    <h2>All kinds of events available for pet lovers</h2><br>
+    <h3>Always Choose what your pet wants</h3>
+    <h4>The difference between friends and pets is that friends we allow into our company, pets we allow into our soltirude - UNKNOWN</h4>
+
+    <nav class="n2">
+      <div class="row">
+        <div>
+          <a href="/connections"><img alt="food" src="../assets/images/food.jpg" width="350" height="350"></a><br>
+          <a href="/connections" class="c1">
+          <h2>Food</h2></a><br>
+          <br>
+        </div>
+        <div class="column">
+          <a href="/connections"><img alt="toys" src="../assets/images/toys.jpg" width="350" height="350"><br></a> <a href="/connections" class="c1">
+          <h2>toys</h2></a><br>
+          <br>
+        </div>
+        <div class="column">
+          <a href="/connections"><img alt="Healthcare" src="../assets/images/Healthcare.jpg" width="350" height="350"><br></a> <a href="/connections" class="c1">
+          <h2>Healthcare</h2></a><br>
+          <br>
+        </div>
+        <div class="column">
+          <a href="/connections"><img alt="beds" src="../assets/images/beds.jpg" width="350" height="350"><br></a> <a href="/connections" class="c1">
+          <h2>beds</h2></a><br>
+          <br>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <%- include('partials/footer.ejs')  %>
+</body>
+</html>

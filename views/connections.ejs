@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pet products store</title>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('partials/header.ejs')  %>
+  <%- include('partials/nav.ejs')  %>
+
+
+
+  <div class="newlist">
+     <% category.forEach(function(cat){ %>
+        <h1 style="color: #07394B;"><%= cat %></h1><br>
+          <% data.forEach(function(connection){
+                  if(cat == connection.catName){ %> <br>
+                    <div><a href="/connection/<%=connection.connId %>" style="text-decoration: none; color: black"><%= connection.connName %></a></div><br>
+              <%}
+           });
+       }); %>
+  </div>
+<%- include('partials/footer.ejs')  %>
+
+    </body>
+    </html>

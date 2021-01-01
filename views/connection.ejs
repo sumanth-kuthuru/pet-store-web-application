@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pet products store</title>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+<%- include('partials/header.ejs') %>
+
+  <%- include('partials/nav.ejs')  %>
+
+<div class="pedigree">
+    <h1>Event Details</h1>
+
+</div>
+<div class="t">
+    <table>
+
+          <tr> <th class="t2"> Are you intrested in attending the event</th> </tr>
+
+        <tr>
+           <td>
+             <% if(loggedIn) { %>
+            <div class="button-container">
+              <form method="post" action='/savedconnections'>
+              <input type='submit' value='Yes' name='button' style="background-color:green;color:white;border:none;width:75px; height:20px"/>
+              <input type="hidden" value="add" name="actionOp" />
+              <input type="hidden" value="<%= Uid %>" name="Uid" />
+              <input type="hidden" value="<%= data.connName %>" name="connName" />
+              <input type="hidden" value="<%= data.catName %>" name="catName" />
+            </form>
+            <form method="post" action='/savedconnections'>
+                <input type='submit' value='No' name='button' style="background-color:red;color:white;border:none;width:75px; height:20px"/>
+                <input type="hidden" value="add" name="actionOp" />
+                <input type="hidden" value="<%= Uid %>" name="Uid" />
+                <input type="hidden" value="<%= data.connName %>" name="connName" />
+                <input type="hidden" value="<%= data.catName %>" name="catName" />
+              </form>
+             <form method="post" action='/savedconnections'>
+                <input type='submit' value='Maybe' name='button' style="background-color:skyblue; color:white;border:none;width:75px; height:20px" />
+                <input type="hidden" value="add" name="actionOp" />
+                <input type="hidden" value="<%= Uid %>" name="Uid" />
+                <input type="hidden" value="<%= data.connName %>" name="connName" />
+                <input type="hidden" value="<%= data.catName %>" name="catName" />
+              </form> </div>
+              <%} else { %>
+
+         <button onclick="window.location.href='/login'" style="background-color:green;color:white;border:none;width:75px; height:20px">Yes</button>
+         <button onclick="window.location.href='/login'" style="background-color:red;color:white;border:none;width:75px; height:20px">No</button>
+         <button onclick="window.location.href='/login'" style="background-color:skyblue;color:white;border:none;width:75px; height:20px">Maybe</button>
+          <% } %>
+       </td>
+        </tr>
+
+
+    </table>
+
+</div>
+
+    <div class="description">
+    <img class="notloading" src= "<%= data.imageURL %>" alt="" width="120" height="120"><br><br>
+    <h2><%= data.catName %></h2>
+    <h4>Event name: <%= data.connName %></h4>
+    <h4><%= data.connHost %></h4>
+    <h4>Event Date: <%= data.dateTime %></h4>
+    <h2>Details</h2>
+    <h4><%= data.details %></h4>
+
+</div>
+<%- include('partials/footer.ejs')  %>
+
+</body>
+</html>

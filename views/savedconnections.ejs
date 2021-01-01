@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>pet products store</title>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+  <%- include('partials/header.ejs')  %>
+  <%- include('partials/nav.ejs')  %>
+  <article>
+    <header class="p1">
+      <h1>Register for the event</h1><br>
+      <br>
+      <div class="u2">
+        <% if(connectionsExist) { %>
+        <table class="table">
+          <tr>
+            <th class="t4">Event</th>
+            <th class="t4">Category</th>
+            <th class="t4">Register</th>
+            <th class="t4">Update/Delete</th>
+          </tr>
+
+
+            <% data.forEach(function(userConn){ %>
+          <tr>
+            <td class="t4"><%= userConn._event %></td>
+            <td class="t4"><%= userConn._category %></td>
+            <td class="t4"><%= userConn._rsvp %></td>
+            <td class="t4">
+            <div class="button-container">
+            <form method="get" action='/connection/<%= userConn._Uid %>'>
+          <input type='submit' value='Update' name='button' style="background-color:black;color:white;border:none;width:75px; height:22px"/>
+          <input type="hidden" value="<%= userConn._Uid %>" name="Uid" />
+
+        </form>
+         <form method="post" action='/savedconnections'>
+         <input type='submit' value='Delete' name='button' style="background-color:black;color:white;border:none;width:75px; height:22px"/>
+         <input type="hidden" value="delete" name="actionOp" />
+         <input type="hidden" value="<%= userConn._Uid %>" name="Uid" />
+         <input type="hidden" value="<%= userConn._event %>" name="connName" />
+         <input type="hidden" value="<%= userConn._category %>" name="catName" />
+       </form></div></td>
+          </tr>
+            <% }); %>
+
+          </table>
+
+        <% } else { %>
+          <div style = "padding-left: 100px;">
+          <h1><%= Name %> 's events</h1><br>
+          <h3>You have no registerd events. checkout the available events or host your own events.</h3></div>
+        <% } %>
+      </div>
+    </header>
+  </article>
+  <%- include('partials/footer.ejs')  %>
+
+</body>
+</html>
